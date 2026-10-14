@@ -1,0 +1,30 @@
+{
+  "name": "pushary-grok-bot",
+  "displayName": "Pushary",
+  "version": "0.1.0",
+  "minClientVersions": {
+    "cursor": "never",
+    "grokbot": "0.70.0",
+    "sand": "0.70.0"
+  },
+  "description": "Get a push on your phone when a Bot finishes or fails, and answer its questions from your phone. Updates land in the same Pushary inbox as your other AI agents. Requires a paid Pushary plan.",
+  "author": { "name": "Pushary", "email": "business@pushary.com" },
+  "homepage": "https://pushary.com/docs/agents/guides/grok-bot",
+  "repository": "https://github.com/Pushary/grok-bot-plugin",
+  "license": "MIT",
+  "logo": "assets/logo.png",
+  "keywords": [
+    "notifications",
+    "push",
+    "phone",
+    "human-in-the-loop",
+    "questions",
+    "approvals",
+    "grok",
+    "mcp"
+  ],
+  "category": "productivity",
+  "tags": ["notifications", "push", "human-in-the-loop", "grok", "mcp"],
+  "mcpServers": "./mcp.json",
+  "rules": "./rules/"
+}

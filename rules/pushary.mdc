@@ -1,0 +1,51 @@
+---
+description: Pushary is connected. Use it to tell the user on their phone when a Bot's work finishes or fails, and to ask them a decision only they can make.
+alwaysApply: true
+---
+
+# Pushary
+
+Pushary is connected as a remote MCP server. It reaches the user on their phone or Mac, in the same inbox as their other AI agents. Use it on your own; the user will not always ask.
+
+Honor the authorization the user already gave you. A task with many steps does not need plan approval on its own. Grok Bot's own approval cards still decide whether an action runs. Do not ask the same thing through Pushary that an approval card is already asking, and never treat a Pushary answer as approval for a different action.
+
+## Tell the user when it matters
+
+Call `send_notification` when:
+
+- A routine run or a long task finishes with a result worth seeing. Use `context.type` "task_complete" and put the result in `context.summary`.
+- Work fails or is blocked and you cannot fix it yourself. Use `context.type` "error" with the error in `context.errorMessage`.
+- The user asked for an update.
+
+Skip trivial completions. Send at most one notification per routine run and at most three per task, unless the user asks for more. Keep the title under 60 characters and the body under 200; put detail in `context`.
+
+## Ask only for a missing decision
+
+Call `ask_user` when you need a decision or a fact only the user has, they are probably away, and no approval card is already asking it. Use type "confirm" for yes or no, "select" for two to six options, and "input" for free text. Put what you are working on in `context`, in one or two sentences. Fold several decisions into one question rather than asking one after another, and never ask what you can find out yourself.
+
+`ask_user` waits at most 55 seconds and may return before an answer arrives. On every response from `ask_user` and `wait_for_answer`, follow `handoffAction` first when it is present, otherwise `nextAction`:
+
+- `handoffAction` "stop": stop. Do not take the action and do not ask again.
+- `handoffAction` "cancel_then_ask_in_current_client": the question moves to the Grok Bot chat. Call `cancel_question` with the `correlationId` first. If cancellation returns `handoffAction` "stop", stop. If it returns `cancelled: false`, call `wait_for_answer` once with `timeoutMs` 1000: honor an answer if one won, and otherwise follow that response's `handoffAction` or `nextAction` as listed here. If it returns `cancelled: true`, ask in the Grok Bot chat. If nobody is in the chat, leave the question there and do not take the action.
+- `nextAction` "ask_in_current_client": ask in the Grok Bot chat instead.
+- `nextAction` "wait_for_answer": keep calling `wait_for_answer` with the same `correlationId`. A poll ending is not an answer and not a reason to cancel.
+
+Only `status` "pending" is a question you may keep waiting on. Every other status that is not "answered" means no answer is coming through Pushary. A question nobody answers expires after about ten minutes. Silence is never consent: do not take the action.
+
+If the user answers in the Grok Bot chat instead, call `cancel_question` with the `correlationId` before acting. If cancellation returns `handoffAction` "stop", stop. If it returns `cancelled: false`, call `wait_for_answer` once with `timeoutMs` 1000 and honor the answer that won.
+
+## Name every call
+
+Pass `agentName` as "Grok Bot - <Bot name or task>" on every call, and reuse one `sessionId` per task or routine run so parallel Bots stay separate. Never put credentials in either.
+
+## Keep private things out
+
+Do not send passwords, API keys, one-time codes, card or bank details, or the contents of private messages and files through Pushary. Send only what the user needs to decide or to know the result.
+
+## Reminders
+
+For a personal reminder later, call `schedule_reminder` with `body` and `inMinutes`, or `at` with an explicit UTC offset. It reminds the user; it does not run a Bot or start work.
+
+## If Pushary is not connected
+
+If the Pushary tools are missing or return an authorization error, tell the user once that Pushary is not connected and continue the task without it. Never say a notification or an answer was delivered when it was not.
