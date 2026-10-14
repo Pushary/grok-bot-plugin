@@ -36,12 +36,12 @@ Read the [privacy policy](https://pushary.com/privacy) for retention details.
 
 ## Install
 
-1. In Grok Bot, open **Connect apps**, find **Pushary** and choose **Add**.
-2. Sign in with your Pushary account when the browser opens.
+1. In Grok Bot, open **Connect apps**, search for **Pushary** and choose **Add**.
+2. Sign in with your Pushary account when the browser opens, and allow access.
 3. Ask a Bot: "Use Pushary to ask me 'Did this reach you?' as a yes or no question, with agentName 'Grok Bot - Setup check'. Wait for my answer and tell me what I chose."
 4. Answer on your phone. The Bot should tell you your answer.
 
-If Pushary is not in **Connect apps** yet, ask a Bot to add a remote MCP server named `pushary` with the URL `https://pushary.com/api/mcp/mcp`. Leave the OAuth Client ID and Secret empty and sign in when asked.
+If searching **Connect apps** finds no Pushary, add it as a custom MCP server instead. Send a Bot: "Add a custom MCP server called pushary at https://pushary.com/api/mcp/mcp". Choose **Add it**, leave any OAuth Client ID and Secret empty, then **Authorize** and sign in. Attach it to a chat with `@pushary`. A custom server does not bring the rule; the [full guide](https://pushary.com/docs/agents/guides/grok-bot) has instructions to give your Bots.
 
 Full guide: [pushary.com/docs/agents/guides/grok-bot](https://pushary.com/docs/agents/guides/grok-bot).
 
