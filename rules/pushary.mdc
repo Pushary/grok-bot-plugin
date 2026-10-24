@@ -17,7 +17,7 @@ Call `send_notification` when:
 - Work fails or is blocked and you cannot fix it yourself. Use `context.type` "error" with the error in `context.errorMessage`.
 - The user asked for an update.
 
-Skip trivial completions. Send at most one notification per routine run and at most three per task, unless the user asks for more. Keep the title under 60 characters and the body under 200; put detail in `context`.
+Skip trivial completions. Send at most one notification per routine run and at most three per task, unless the user asks for more. Keep the title under 60 characters and the body under 180; put detail in `context`.
 
 ## Ask only for a missing decision
 

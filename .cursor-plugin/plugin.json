@@ -1,7 +1,7 @@
 {
   "name": "pushary-grok-bot",
   "displayName": "Pushary",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "minClientVersions": {
     "cursor": "never",
     "grokbot": "0.70.0",
