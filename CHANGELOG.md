@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- The rule says one `ask_user` call waits at most 48 seconds, as the server does.
+
 ## 0.1.1
 
 - Notification bodies are kept under 180 characters, where the phone cuts them.

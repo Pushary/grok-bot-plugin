@@ -23,7 +23,7 @@ Skip trivial completions. Send at most one notification per routine run and at m
 
 Call `ask_user` when you need a decision or a fact only the user has, they are probably away, and no approval card is already asking it. Use type "confirm" for yes or no, "select" for two to six options, and "input" for free text. Put what you are working on in `context`, in one or two sentences. Fold several decisions into one question rather than asking one after another, and never ask what you can find out yourself.
 
-`ask_user` waits at most 55 seconds and may return before an answer arrives. On every response from `ask_user` and `wait_for_answer`, follow `handoffAction` first when it is present, otherwise `nextAction`:
+`ask_user` waits at most 48 seconds and may return before an answer arrives. On every response from `ask_user` and `wait_for_answer`, follow `handoffAction` first when it is present, otherwise `nextAction`:
 
 - `handoffAction` "stop": stop. Do not take the action and do not ask again.
 - `handoffAction` "cancel_then_ask_in_current_client": the question moves to the Grok Bot chat. Call `cancel_question` with the `correlationId` first. If cancellation returns `handoffAction` "stop", stop. If it returns `cancelled: false`, call `wait_for_answer` once with `timeoutMs` 1000: honor an answer if one won, and otherwise follow that response's `handoffAction` or `nextAction` as listed here. If it returns `cancelled: true`, ask in the Grok Bot chat. If nobody is in the chat, leave the question there and do not take the action.
