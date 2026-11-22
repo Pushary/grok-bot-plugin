@@ -18,6 +18,27 @@ Your Bots keep working on their cloud computer after you close the laptop. Pusha
 
 The bundled rule tells each Bot when to reach you and when to stay quiet: one push per routine run at most, and no questions that a Grok Bot approval card is already asking.
 
+## What you get after you sign in
+
+1. Sign in and pick a plan. New customers start with a 3-day trial.
+2. Add Pushary in Grok Bot's **Connect apps** and sign in with the same account. There is no API key to copy.
+3. When a Bot finishes, fails or needs a decision, it reaches your phone (the Pushary app for iOS and Android), your Mac, or the dashboard. A question stays open for about ten minutes.
+4. You answer with one tap, or type a short reply, and the Bot carries on. The dashboard keeps a record of what each agent asked and what you answered.
+
+See [phone calls when a Bot needs a decision](https://pushary.com/grok-bot-phone-call?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme).
+
+## Plans
+
+Each plan starts with a 3-day trial for new customers. During the trial, Agent, Agent Pro and Team include 5 call minutes.
+
+| Plan | Price | What you get |
+| --- | --- | --- |
+| [Agent](https://pushary.com/pricing?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) | $9.99 a month | One person and every AI agent they run. Approve, deny or answer from your phone or Mac. 10 call minutes a month. |
+| [Agent Pro](https://pushary.com/pricing?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) | $19.99 a month | Everything in Agent, plus unlimited notifications, budgets and priority support. 20 call minutes a month. |
+| [Team](https://pushary.com/teams?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) | $59 a month for 5 people, $12 for each extra person | A shared record of what your team's agents asked and who answered, with export. 60 call minutes a month. |
+
+Missed the push? Pushary can call you, by default after 2 minutes, and read the request. You approve it, say no or tell the agent what to do. Calls need a confirmed phone number and work in English, German, French and Dutch. [Phone calls](https://pushary.com/calls?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) · [How calls work](https://pushary.com/docs/agents/phone-calls?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme)
+
 ## What connecting does
 
 Before you sign in, know what is shared.
@@ -31,7 +52,7 @@ Read the [privacy policy](https://pushary.com/privacy) for retention details.
 
 ## What you need
 
-- A paid Pushary plan for your own agents, such as Agent, Agent Pro or Team. Eligible web sign-ups get a trial; see [pricing](https://pushary.com/pricing). Partner plans embed approvals in your own product and do not include this.
+- A paid Pushary plan for your own agents, such as Agent, Agent Pro or Team. Eligible web sign-ups get a trial; see [pricing](https://pushary.com/pricing?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme). Partner plans embed approvals in your own product and do not include this.
 - The Pushary app on your phone, or the Pushary Mac app, signed in to the same account. Get them at [pushary.com/download](https://pushary.com/download).
 
 ## Install
@@ -41,9 +62,9 @@ Read the [privacy policy](https://pushary.com/privacy) for retention details.
 3. Ask a Bot: "Use Pushary to ask me 'Did this reach you?' as a yes or no question, with agentName 'Grok Bot - Setup check'. Wait for my answer and tell me what I chose."
 4. Answer on your phone. The Bot should tell you your answer.
 
-If searching **Connect apps** finds no Pushary, add it as a custom MCP server instead. Send a Bot: "Add a custom MCP server called pushary at https://pushary.com/api/mcp/mcp". Choose **Add it**, leave any OAuth Client ID and Secret empty, then **Authorize** and sign in. Attach it to a chat with `@pushary`. A custom server does not bring the rule; the [full guide](https://pushary.com/docs/agents/guides/grok-bot) has instructions to give your Bots.
+If searching **Connect apps** finds no Pushary, add it as a custom MCP server instead. Send a Bot: "Add a custom MCP server called pushary at https://pushary.com/api/mcp/mcp". Choose **Add it**, leave any OAuth Client ID and Secret empty, then **Authorize** and sign in. Attach it to a chat with `@pushary`. A custom server does not bring the rule; the [full guide](https://pushary.com/docs/agents/guides/grok-bot?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) has instructions to give your Bots.
 
-Full guide: [pushary.com/docs/agents/guides/grok-bot](https://pushary.com/docs/agents/guides/grok-bot).
+Full guide: [pushary.com/docs/agents/guides/grok-bot](https://pushary.com/docs/agents/guides/grok-bot?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme).
 
 ## What it does not do
 
@@ -64,7 +85,7 @@ Remove Pushary from **Connect apps** in Grok Bot to stop your Bots using the sig
 | MCP server | `mcp.json` | Connects Grok Bot to six Pushary tools: `send_notification`, `ask_user`, `wait_for_answer`, `cancel_question`, `schedule_reminder` and `propose_scope` |
 | Rule | `rules/pushary.mdc` | Always-on guidance: when a Bot should notify you, when it should ask, and what it must leave out |
 
-This plugin is for Grok Bot only. For the Cursor editor, use [Pushary for Cursor](https://github.com/Pushary/cursor-plugin), which also gates risky commands.
+This plugin is for Grok Bot only. For the Cursor editor, use [Pushary for Cursor](https://github.com/Pushary/cursor-plugin), which also gates risky commands. For Grok Build in the terminal, use [Pushary for Grok Build](https://github.com/Pushary/grok-build-plugin). To answer from the notch on your Mac, get [Pushary for Mac](https://github.com/Pushary/pushary-mac).
 
 ## Support
 
