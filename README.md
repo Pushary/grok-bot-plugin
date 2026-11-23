@@ -10,7 +10,7 @@
 
 ## What it does
 
-Your Bots keep working on their cloud computer after you close the laptop. Pushary tells you how that went, on your phone, in the same inbox as your other AI agents such as Claude Code, Codex and Cursor.
+Your Bot is working in the cloud when it needs a decision. It sends the question to your phone through Pushary. With calls enabled, Pushary can ring you if you miss the push. Answer and the Bot continues with your choice.
 
 1. **Notify.** When a routine run or a long task finishes, or fails in a way the Bot cannot fix, the Bot sends you a push with the result. Tap it for the detail.
 2. **Ask.** When a Bot needs a decision only you can make, it asks you through Pushary: yes or no, a choice of options, or a short answer. You answer from the Pushary phone or Mac app, and the Bot carries on.
@@ -35,7 +35,7 @@ Each plan starts with a 3-day trial for new customers. During the trial, Agent, 
 | --- | --- | --- |
 | [Agent](https://pushary.com/pricing?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) | $9.99 a month | One person and every AI agent they run. Approve, deny or answer from your phone or Mac. 10 call minutes a month. |
 | [Agent Pro](https://pushary.com/pricing?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) | $19.99 a month | Everything in Agent, plus unlimited notifications, budgets and priority support. 20 call minutes a month. |
-| [Team](https://pushary.com/teams?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) | $59 a month for 5 people, $12 for each extra person | A shared record of what your team's agents asked and who answered, with export. 60 call minutes a month. |
+| [Team](https://pushary.com/teams?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) | $59 a month for 5 people, $12 for each extra person | Each person gets their own agent’s questions. On supported hooks, route a step such as a production deploy to the teammate who approves it. See who answered in the shared record. Includes export and 60 shared call minutes a month. |
 
 Missed the push? Pushary can call you, by default after 1 minute, and read the request. You approve it, say no or tell the agent what to do. Calls need a confirmed phone number and work in English, German, French and Dutch. [Phone calls](https://pushary.com/calls?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme) · [How calls work](https://pushary.com/docs/agents/phone-calls?utm_source=github&utm_medium=oss-adapter&utm_campaign=grok-bot-plugin&utm_content=readme)
 
